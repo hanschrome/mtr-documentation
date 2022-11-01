@@ -1,6 +1,15 @@
 services:
-  nodejs:
+  nodejs-base:
     build: docker/images/nodejs/base
     image: nodejs-docusaurus
     volumes:
       - ./volumes/docusaurus:/var/docusaurus
+  nodejs:
+    build: docker/images/nodejs/dev
+    image: nodejs-docusaurus-dev
+    expose:
+      - 3000:3000
+    volumes:
+      - ./volumes/docusaurus:/var/docusaurus
+    depends_on:
+      - nodejs-base
