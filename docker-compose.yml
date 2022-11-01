@@ -1,0 +1,6 @@
+services:
+  nodejs:
+    build: docker/images/nodejs/base
+    image: nodejs-docusaurus
+    volumes:
+      - ./volumes/docusaurus:/var/docusaurus
